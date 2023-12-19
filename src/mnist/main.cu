@@ -2,7 +2,7 @@
 #include <mnist.cuh>
 
 #define BATCH_SIZE 128 
-#define LEARNING_RATE 0.002
+#define LEARNING_RATE 0.003
 #define L2 0.0001
 #define EPOCHS 30
 #define BETA 0.99

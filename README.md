@@ -1,5 +1,5 @@
 ﻿# neural-network
-Convolutional Neural Network with CUDA
+Convolutional Neural Network with CUDA, updated to run on CUDA Toolkit 12.3
 
 ## Layers
 * Linear
@@ -16,7 +16,7 @@ Convolutional Neural Network with CUDA
 ## Prerequisites
 * CMake 3.8+
 * MSVC14.00/GCC6+
-* **CUDA 10.x [Not compatible with CUDA 11.x]**
+* **CUDA 12** 
 
 ## Run
 ```
