@@ -154,11 +154,11 @@ void Minist::backward() {
 
 std::pair<int, int> Minist::top1_accuracy(
     const thrust::host_vector<
-        float, thrust::system::cuda::experimental::pinned_allocator<float>>&
+        float, pinned_allocator>&
         probs,
     int cls_size,
     const thrust::host_vector<
-        float, thrust::system::cuda::experimental::pinned_allocator<float>>&
+        float, pinned_allocator>&
         labels) {
   int count = 0;
   int size = labels.size() / cls_size;

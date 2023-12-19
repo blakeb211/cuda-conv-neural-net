@@ -5,7 +5,8 @@
 #include <string>
 #include <unordered_map>
 
-#include <thrust/system/cuda/experimental/pinned_allocator.h>
+#include <thrust/host_vector.h>
+#include <thrust/system/cuda/memory_resource.h>
 
 #include <blas.cuh>
 #include <conv.cuh>
@@ -18,6 +19,9 @@
 #include <rmsprop.cuh>
 #include <softmax.cuh>
 #include <storage.cuh>
+
+using mr = thrust::system::cuda::universal_host_pinned_memory_resource;
+using pinned_allocator = thrust::mr::stateless_resource_allocator<float, mr >;
 
 class Minist {
  public:
@@ -33,11 +37,11 @@ class Minist {
 
   std::pair<int, int> top1_accuracy(
       const thrust::host_vector<
-          float, thrust::system::cuda::experimental::pinned_allocator<float>>&
+          float, pinned_allocator>&
           probs,
       int cls_size,
       const thrust::host_vector<
-          float, thrust::system::cuda::experimental::pinned_allocator<float>>&
+          float, pinned_allocator>&
           labels);  // top1_accuracy
 
   // Conv1_5x5     1 * 32
